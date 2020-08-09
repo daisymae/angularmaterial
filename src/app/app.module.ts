@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { DemoModule } from './demo/demo.module';
 
 const routes: Routes = [
-  { path: 'demo', loadChildren: () => DemoModule }, // './demo/demo.module#DemoModule' }, this is old way (5); not sure where it broke, but had to change for 9
+  // './demo/demo.module#DemoModule' }, this is old way (5); not sure where it broke, but had to change for 9
+  { path: 'demo', loadChildren: () => DemoModule },
   { path: '**', redirectTo: 'demo' },
 ];
 
