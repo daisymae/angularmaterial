@@ -1,2 +1,45 @@
-<app-toolbar></app-toolbar>
-<router-outlet></router-outlet>
+<!-- Some differences between Angular 5 and 9 (both seem to work) -->
+<!-- <mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" ([opened])="(opened)"
+    >Sidenav content</mat-sidenav
+  >
+  <mat-sidenav-content>
+    Main content
+    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle</button></p>
+    <app-toolbar></app-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<!-- Angular 5 version of sidenav -->
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav class="example-sidenav">
+    Jolly good!
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+    <app-toolbar></app-toolbar>
+    <router-outlet></router-outlet>
+    <button type="button" mat-button (click)="sidenav.open()">
+      Open sidenav
+    </button>
+  </div>
+</mat-sidenav-container>
+
+<!-- in angular 9, might really need mat-drawer-container -->
+<!-- <mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+
+</mat-drawer-container> -->
