@@ -2,17 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
+import { Routes, RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
-import { MaterialModule } from './shared/material.module';
-import { FormsModule } from '@angular/forms';
+import { DemoModule } from './demo/demo.module';
+
+const routes: Routes = [
+  { path: 'demo', loadChildren: () => DemoModule }, // './demo/demo.module#DemoModule' }, this is old way (5); not sure where it broke, but had to change for 9
+  { path: '**', redirectTo: 'demo' },
+];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent],
