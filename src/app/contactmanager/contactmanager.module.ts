@@ -8,12 +8,17 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { Routes, RouterModule } from '@angular/router';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
     path: '',
     component: ContactmanagerAppComponent,
-    children: [{ path: '', component: MainContentComponent }],
+    children: [
+      { path: ':id', component: MainContentComponent },
+      { path: '', component: MainContentComponent }
+    ],
   },
   { path: '**', redirectTo: '' },
 ];
@@ -22,10 +27,12 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MaterialModule,
+    HttpClientModule,
     FlexLayoutModule,
     FormsModule,
     RouterModule.forChild(routes),
   ],
+  providers: [UserService],
   declarations: [
     ContactmanagerAppComponent,
     ToolbarComponent,
