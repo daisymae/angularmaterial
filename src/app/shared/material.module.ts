@@ -32,6 +32,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { CdkTableModule } from '@angular/cdk/table';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatCheckboxModule,
     MatChipsModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatExpansionModule,
     MatFormFieldModule,
@@ -80,6 +82,7 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatCheckboxModule,
     MatChipsModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatExpansionModule,
     MatFormFieldModule,
