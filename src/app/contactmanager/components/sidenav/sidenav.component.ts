@@ -17,6 +17,8 @@ export class SidenavComponent implements OnInit {
   );
 
   users: Observable<User[]>;
+  isDarkTheme = false;
+  direction = 'ltr';
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -39,6 +41,17 @@ export class SidenavComponent implements OnInit {
         this.sidenav.close();
       }
     });
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleDir() {
+    this.direction = this.direction === 'ltr' ? 'rtl' : 'ltr';
+    // in Angular 5 - ? [but not in 9], the sidebar had to be toggled when the direction changed
+    // this is how to do that:
+    // this.sidenav.toggle().then(() => this.sidenav.toggle());
   }
 
   isScreenSmall(): boolean {

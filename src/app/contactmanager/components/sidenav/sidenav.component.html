@@ -1,5 +1,9 @@
 <!-- Some differences between Angular 5 and 9 (both seem to work) -->
-<mat-sidenav-container class="app-sidenav-container">
+<mat-sidenav-container
+  class="app-sidenav-container"
+  [class.dark-theme]="isDarkTheme"
+  [dir]="direction"
+>
   <mat-sidenav
     #sidenav
     class="app-sidenav mat-elevation-z10"
@@ -18,7 +22,11 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="app-sidenav-content">
-    <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+    <app-toolbar
+      (toggleTheme)="toggleTheme()"
+      (toggleSidenav)="sidenav.toggle()"
+      (toggleDir)="toggleDir()"
+    ></app-toolbar>
     <div class="wrapper">
       <router-outlet></router-outlet>
     </div>
